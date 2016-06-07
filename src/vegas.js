@@ -124,9 +124,9 @@
 
             // Wrapper with content
             if (!isBody) {
-                this.$elmt.css('height', this.$elmt.css('height'));
+                this.$elmt.css('height', this.$elmt.css('height')).css('overflow', this.$elmt.css('overflow')).css('padding', this.$elmt.css('padding'));
 
-                $wrapper = $('<div class="vegas-wrapper">')
+                /*$wrapper = $('<div class="vegas-wrapper">')
                     .css('overflow', this.$elmt.css('overflow'))
                     .css('padding',  this.$elmt.css('padding'));
 
@@ -140,7 +140,7 @@
                 }
 
                 this.$elmt.clone(true).children().appendTo($wrapper);
-                this.elmt.innerHTML = '';
+                this.elmt.innerHTML = '';*/
             }
 
             // Timer
