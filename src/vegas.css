@@ -34,6 +34,10 @@
             width: 100%;
         }
 
+.vegas-slide-link {
+      cursor: pointer;
+    }
+
 .vegas-slide,
 .vegas-slide-inner {
     margin: 0;

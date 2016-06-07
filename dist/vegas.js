@@ -7,6 +7,15 @@
  * Copyright (C) 2010-2016 Jay Salvat
  * http://jaysalvat.com/
  * --------------------------------------------------------------------------*/
+/*!-----------------------------------------------------------------------------
+ * Vegas - Fullscreen Backgrounds and Slideshows.
+ * v2.2.1 - built 2016-06-07
+ * Licensed under the MIT License.
+ * http://vegas.jaysalvat.com/
+ * ----------------------------------------------------------------------------
+ * Copyright (C) 2010-2016 Jay Salvat
+ * http://jaysalvat.com/
+ * --------------------------------------------------------------------------*/
 
 (function ($) {
     'use strict';
@@ -334,6 +343,7 @@
                 $video,
                 $slides       = this.$elmt.children('.vegas-slide'),
                 src           = this.settings.slides[nb].src,
+                link          = this.settings.slides[nb].link,
                 videoSettings = this.settings.slides[nb].video,
                 delay         = this._options('delay'),
                 align         = this._options('align'),
@@ -382,7 +392,12 @@
                 animationDuration = delay;
             }
 
-            $slide = $('<div class="vegas-slide"></div>');
+            var slideItemClasses = 'vegas-slide';
+            if (link) {
+                slideItemClasses += ' vegas-slide-link';
+            }
+
+            $slide = $('<div class="' + slideItemClasses + '"></div>');
 
             if (this.support.transition && transition) {
                 $slide.addClass('vegas-transition-' + transition);
@@ -445,6 +460,12 @@
                     $inner
                         .addClass('vegas-animation-' + animation)
                         .css('animation-duration',  animationDuration + 'ms');
+                }
+
+                if (link) {
+                    $inner.click(function() {
+                        window.location.href = link;
+                    });
                 }
 
                 $slide.append($inner);
@@ -691,3 +712,4 @@
     };
 
 })(window.jQuery || window.Zepto);
+
